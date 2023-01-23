@@ -1,0 +1,2632 @@
+body {
+    margin: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #f0f8ff;
+    -webkit-font-smoothing: antialiased;
+
+    background-color: #001524;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+
+
+/*=================================================================
+Container*/
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        max-width: 800px;
+    }
+}
+
+
+
+/*=================================================================
+Header*/
+.header {
+    width: 100%;
+    height: 100px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.205);
+    border-radius: 15px;
+    background-color: #00000090;
+    margin-bottom: 15px;
+}
+
+.header__inner {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.header__logo {
+    display: flex;
+    left: 0;
+    top: 0;
+    width: 13%;
+    height: 100%;
+}
+
+.header__img {
+    display: flex;
+    vertical-align: top;
+    align-content: center;
+    top: 0;
+}
+
+.header__weather {
+    align-items: center;
+    width: 23%;
+    height: 100%;
+    position: relative;
+}
+
+.header__weather__info {
+    position: relative;
+    width: 100%;
+    height: 75%;
+    top: 0;
+    padding-bottom: 3px;
+    flex-direction: row;
+}
+
+.header__weather__info__picture, .header__weather__info__text {
+    float: left;
+}
+
+.header__weather__info__picture {
+    display: flex;
+    position: relative;
+    width: 17%;
+    height: 100%;
+    margin-right: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__weather__info__picture__img {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+}
+
+.header__weather__info__text {
+    position: relative;
+    margin-left: 5px;
+    right: 0;
+    width: 79.5%;
+    height: 100%;
+}
+
+.header__weather__info__text__mainData {
+    position: relative;
+    width: 100%;
+    height: 23%;
+    flex-direction: row;
+}
+
+.header__weather__info__text__mainData__city, .header__weather__info__text__mainData__temperature {
+    float: left;
+    position: absolute;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    height: 100%;
+}
+
+.header__weather__info__text__mainData__city {
+    left: 0;
+    width: 82%;
+}
+
+.header__weather__info__text__mainData__temperature {
+    right: 0;
+    width: 18%;
+    text-align: right;
+}
+
+.header__weather__info__text__elseData {
+    position: relative;
+    width: 100%;
+    height: 77%;
+    flex-direction: column;
+}
+
+.header__weather__info__text__elseData__state, .header__weather__info__text__elseData__pressure,
+.header__weather__info__text__elseData__humidity, .header__weather__info__text__elseData__wind {
+    color: #c0ff61;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+}
+
+.header__weather__info__text__elseData__pressure, .header__weather__info__text__elseData__wind {
+    width: 70%;
+}
+
+.header__weather__info__text__elseData__wind__select, .header__weather__info__text__elseData__pressure__select {
+    width: 25%;
+    height: 15px;
+    background-color: transparent;
+    color: #C0FF61;
+    font-size: 10px;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+}
+
+option {
+    background-color: #000000;
+}
+
+.header__weather__info__text__elseData__lastUpdate {
+    color: #a73fb3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: bold;
+    position: absolute;
+    right: 0;
+}
+
+.header__weather__input {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    bottom: -1px;
+    padding-top: 3px;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.header__weather__input__text {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 0;
+    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    font-style: oblique;
+    color: #ffffff;
+    border-radius: 15px;
+}
+
+.header__weather__city__btns {
+    width: 20%;
+    display: flex;
+}
+
+.header__weather__input__buttons__change, .header__weather__input__buttons__define {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 115%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 9px;
+    cursor: pointer;
+    border-radius: 15px;
+    color: #ffffff;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+.header__weather__input__buttons__change:hover, .header__weather__input__buttons__define:hover {
+    border-color: #ffffff;
+}
+
+.header__weather__input__buttons__change {
+    background-color: #911e42;
+}
+
+.header__weather__input__buttons__define {
+    background-color: #1e915b;
+}
+
+.header__buttons {
+    height: inherit;
+    width: 13%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: initial;
+}
+
+.header__buttons__auth, .header__buttons__reg, 
+.header__buttons__logout {
+    width: 75%;
+    height: 25%;
+    display: initial;
+    background-color: transparent;
+    border: 1px solid;
+    border-color: #ffffff;
+    opacity: 50%;
+    border-radius: 50px;
+    margin: 5px;
+    transition: opacity .1s linear;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10px;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-align: center;
+    visibility: visible;
+}
+
+.header__buttons__logout {
+    display: none;
+    border-color: #ff0000;
+    color: #ff0000;
+    opacity: 65%;
+}
+
+.header__buttons__auth:hover, .header__buttons__reg:hover,
+.header__buttons__logout:hover {
+    opacity: 100%;
+}
+
+.header__auth__menu, .header__reg__menu {
+    position: absolute;
+    right: 2%;
+    top: 11%;
+    width: 22%;
+    border-radius: 15px;
+    background-color: #00000099;
+    z-index: 3;
+    visibility: hidden;
+}
+
+.header__auth__menu {
+    height: 179px;
+    border: 1px solid rgba(0, 255, 0);
+}
+
+.header__reg__menu {
+    height: 313px;
+    border: 1px solid rgb(245, 69, 69);  
+}
+
+.header__menu__txt {
+    position: relative;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.header__menu__field {
+    position: relative;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    width: 95%;
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 15px;
+}
+
+.header__menu__padding {
+    display: flex;
+    justify-content: center;
+}
+
+.header__auth__menu__btn {
+    position: relative;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    color: #00ff0060;
+    width: 95%;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color .1s linear;
+}
+
+.header__auth__menu__btn:hover {
+    color: #00ff00;
+}
+
+.header__reg__menu__btn {
+    position: relative;
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: transparent;
+    color: rgb(245, 69, 69, 0.35);
+    width: 95%;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color .1s linear;
+}
+
+.header__reg__menu__btn:hover {
+    color: rgb(245, 69, 69);
+}
+
+
+@media (max-width: 1440px) {
+    .header__weather {
+        width: 25%;
+    }
+
+    .header__weather__info__picture {
+        width: 16%;
+    }
+
+    .header__weather__input__buttons__change, .header__weather__input__buttons__define {
+        font-size: 7px;
+    }
+
+    .header__buttons__auth, .header__buttons__reg,
+    .header__buttons__logout {
+        font-size: 7px;
+    }
+}
+
+
+@media (max-width: 1440px) {
+    .header__weather__info__text__elseData__state, 
+    .header__weather__info__text__elseData__pressure, 
+    .header__weather__info__text__elseData__humidity, 
+    .header__weather__info__text__elseData__wind,
+    .header__weather__info__text__elseData__lastUpdate {
+        font-size: 9px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .header {
+        height: 76px;
+    }
+
+    .header__weather {
+        width: 35%;
+    }
+
+    .header__weather__info__picture__img {
+        width: 63px;
+        height: 63px;
+    }
+
+    .header__weather__info__text__mainData__city, .header__weather__info__text__mainData__temperature {
+        font-size: 14px;
+    }
+
+    .header__weather__info__text__elseData__state, .header__weather__info__text__elseData__pressure,
+    .header__weather__info__text__elseData__humidity, .header__weather__info__text__elseData__wind,
+    .header__weather__info__text__elseData__pressure__select, .header__weather__info__text__elseData__wind__select {
+        font-size: 8px;
+    }
+
+    .header__weather__info__text__elseData__pressure__select, .header__weather__info__text__elseData__wind__select {
+        height: 12px;
+    }
+
+    .header__weather__info__text__elseData__lastUpdate {
+        font-size: 7px;
+    }
+
+    .header__weather__input__text {
+        font-size: 9px;
+    }
+
+    .header__buttons {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .header__buttons__auth, .header__buttons__reg,
+    .header__buttons__logout {
+        height: 57%;
+        border: none;
+    }
+
+    .header__buttons__auth {
+        background: url('Images/SVG/SignIn.svg') no-repeat;
+        background-position-y: center;
+    }
+
+    .header__buttons__reg {
+        background: url('Images/SVG/SignUp.svg') no-repeat;
+        background-position-y: center;
+    }
+
+    .header__buttons__logout {
+        background: url('Images/SVG/Logout.svg') no-repeat;
+        background-position-y: center;
+    }
+
+    .header__auth__menu {
+        height: 161px;
+    }
+
+    .header__reg__menu {
+        height: 277px;
+    }
+
+    .header__auth__menu, .header__reg__menu, .header__menu__field, .header__auth__menu__btn, .header__reg__menu__btn {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .header {
+        height: 70px;
+    }
+
+    .header__logo {
+        position: relative;
+    }
+
+    .header__img {
+        height: inherit;
+    }
+
+    .header__weather {
+        width: 30%;
+    }
+
+    .header__weather__info__picture {
+        width: 15%;
+    }
+
+    .header__weather__info__picture__img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .header__weather__info__text {
+        height: 100%;
+        margin-left: 0;
+    }
+
+    .header__weather__info__text__mainData__city, .header__weather__info__text__mainData__temperature {
+        font-size: 10px;
+    }
+
+    .header__weather__info__text__elseData__state, .header__weather__info__text__elseData__pressure,
+    .header__weather__info__text__elseData__humidity, .header__weather__info__text__elseData__wind,
+    .header__weather__info__text__elseData__lastUpdate, .header__weather__info__text__elseData__wind__select,
+    .header__weather__info__text__elseData__pressure__select {
+        font-size: 6px;
+    }
+
+    .header__weather__info__text__elseData__lastUpdate {
+        bottom: -8px;
+        position: absolute;
+    }
+
+    .header__weather__info__text__elseData__wind__select, .header__weather__info__text__elseData__pressure__select {
+        height: 9px;
+    }
+
+    .header__weather__input__text {
+        font-size: 6px;
+    }
+
+    .header__weather__input__buttons__change, .header__weather__input__buttons__define,
+    .header__buttons__auth, .header__buttons__reg {
+        font-size: 5px;
+    }
+
+    .header__auth__menu {
+        height: 110px;
+    }
+
+    .header__reg__menu {
+        height: 185px;
+    }
+
+    .header__auth__menu, .header__reg__menu, .header__menu__field, .header__auth__menu__btn, .header__reg__menu__btn {
+        font-size: 8px;
+    }
+
+    .header__menu__field {
+        margin-top: 2px;
+        margin-bottom: 2px;
+    }
+
+    .header__auth__menu__btn, .header__reg__menu__btn {
+        height: 23px;
+    }
+}
+
+
+@media (max-width: 570px) {
+    .header__inner {
+        align-items: center;
+    }
+
+    .header__logo, .header__buttons {
+        width: 26%;
+        height: 61px;
+    }
+
+    .header__img {
+        width: 100%;
+    }
+
+    .header__weather {
+        width: 38%;
+    }
+    
+    .header__buttons__auth, .header__buttons__reg,
+    .header__buttons__logout {
+        width: 30%;
+        background-position-x: center;
+    }
+}
+
+
+@media (max-width: 470px) {
+    .header {
+        margin-bottom: 8px;
+    }
+
+    .header__logo {
+        height: 50px;
+    }
+}
+
+
+@media (max-width: 425px) {
+    .header__weather__info__picture {
+        width: 13%;
+    }
+}
+
+
+@media (max-width: 410px) {
+    .header__logo, .header__buttons {
+        width: 22%;
+    }
+
+    .header__logo {
+        height: 37px;
+    }
+
+    .header__weather {
+        width: 50%;
+    }
+
+    .header__weather__info__text__elseData__state, 
+    .header__weather__info__text__elseData__pressure, 
+    .header__weather__info__text__elseData__humidity, 
+    .header__weather__info__text__elseData__wind, 
+    .header__weather__info__text__elseData__lastUpdate, 
+    .header__weather__info__text__elseData__wind__select, 
+    .header__weather__info__text__elseData__pressure__select {
+        font-size: 7px;
+    }
+
+    .header__weather__info__text__elseData__wind__select, 
+    .header__weather__info__text__elseData__pressure__select {
+        height: 11px;
+    }
+
+    .header__weather__input__text {
+        font-size: 7px;
+    }
+
+    .header__weather__input__buttons__change, 
+    .header__weather__input__buttons__define {
+        font-size: 6px;
+    }
+
+    .header__auth__menu, .header__reg__menu {
+        width: 40%;
+    }
+}
+
+
+@media(max-width: 395px) {
+    .header {
+        height: 60px;
+    }
+
+    .header__weather__info__text__mainData__city, 
+    .header__weather__info__text__mainData__temperature {
+        font-size: 8px;
+    }
+
+    .header__weather__info__text__elseData__state, 
+    .header__weather__info__text__elseData__pressure, 
+    .header__weather__info__text__elseData__humidity, 
+    .header__weather__info__text__elseData__wind, 
+    .header__weather__info__text__elseData__lastUpdate, 
+    .header__weather__info__text__elseData__wind__select, 
+    .header__weather__info__text__elseData__pressure__select {
+        font-size: 5px;
+        margin-bottom: 1px;
+    }
+
+    .header__weather__info__text__elseData__wind__select, 
+    .header__weather__info__text__elseData__pressure__select {
+        height: 8px;
+    }
+
+    .header__weather__input__text {
+        font-size: 6px;
+        border-width: 1px;
+        height: 80%;
+    }
+
+    .header__weather__input__buttons__change, 
+    .header__weather__input__buttons__define {
+        font-size: 5px;
+        border-width: 1px;
+    }
+
+    .header__auth__menu {
+        height: 71px;
+    }
+
+    .header__menu__txt {
+        margin: 1px 0;
+        font-size: 6px;
+    }
+
+    .header__menu__field {
+        font-size: 5px;
+    }
+
+    .header__reg__menu {
+        height: 118px;
+    }
+
+    .header__auth__menu__btn, .header__reg__menu__btn {
+        height: 16px;
+        margin: 1px 0;
+        font-size: 6px;
+    }
+}
+
+
+
+/*=================================================================
+Chat*/
+.chat {
+    justify-content: center;
+    width: 100%;
+    height: 633px;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.chat__inner {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 633px;
+    border: 1px solid rgba(255, 255, 255, 0.205);
+    border-radius: 15px;
+    background-color: #00000090;
+    overflow: hidden;
+}
+
+.chat__inner__bottom {
+    width: 100%;
+    height: 60px;
+    margin: 5px 0px 15px 0px;
+    padding: 0 5px;
+    justify-content: center;
+}
+
+.chat__message__form {
+    width: inherit;
+    height: inherit;
+    position: relative;
+}
+
+.chat__message__text__side {
+    flex-direction: column;
+    width: 89.5%;
+    height: inherit;
+    position: relative;
+    float: left;
+}
+
+.chat__message {
+    width: 89.5%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background-color: transparent;
+    color: #ffffff;
+    border-radius: 15px;
+    resize: none;
+}
+
+.chat__message__send {
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 10%;
+    border-radius: 15px;
+    color: #ffffff80;
+    opacity: 50%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    background: url('Images/SVG/PaperPlane.svg') no-repeat;
+    filter: invert(1);
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: .15s;
+}
+
+.chat__message__send:hover {
+    opacity: 100%;
+}
+
+.chat__message__symbols {
+    opacity: 0.8;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+.chat__inner__top {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    overflow: auto;
+}
+
+.chat__message__field {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    opacity: 0.85;
+    border-top: 1px solid #ff000040;
+    border-bottom: 1px solid #ff000040;
+    padding: 5px 0;
+}
+
+.chat__message__field__sender__user, .chat__message__field__sender__moder,
+.chat__message__field__sender__admin, .chat__message__field__sender__mainAdmin,
+.chat__message__field__sender__system {
+    width: 20%;
+    height: inherit;
+    text-align: center;
+    font-size: 12px;
+}
+
+.chat__message__field__text__user, .chat__message__field__text__moder,
+.chat__message__field__text__admin, .chat__message__field__text__mainAdmin,
+.chat__message__field__text__system {
+    width: 78%;
+    height: inherit;
+    padding: 0 3px;
+    border-left-style: solid;
+    border-left-color: #ffffff;
+    border-left-width: 1px;
+    border-right-style: solid;
+    border-right-color: #ffffff;
+    border-right-width: 1px;
+    font-size: 11px;
+}
+
+.chat__message__field__functions {
+    display: flex;
+    width: 12%;
+    height: inherit;
+    flex-direction: row;
+    padding: 0 3px;
+}
+
+.chat__message__field__sender__user, .chat__message__field__text__user {
+    color: #ffffff;
+}
+
+.chat__message__field__sender__moder, .chat__message__field__text__moder {
+    color: #62e362;
+}
+
+.chat__message__field__sender__admin, .chat__message__field__text__admin {
+    color: #83a3ff
+}
+
+.chat__message__field__sender__mainAdmin, .chat__message__field__text__mainAdmin {
+    color: #ffff00;
+}
+
+.chat__message__field__sender__system, .chat__message__field__text__system {
+    color: #ff3939;
+}
+
+.chat__message__field__functions__reply,
+.chat__message__field__functions__delete,
+.chat__message__field__functions__ban {
+    width: 33.33333%;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.chat__message__field__functions__reply__btn,
+.chat__message__field__functions__delete__btn,
+.chat__message__field__functions__ban__btn {
+    width: 25px;
+    height: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    filter: invert(1);
+    opacity: .7;
+    transition-property: opacity;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+.chat__message__field__functions__reply__btn {
+    background: url('Images/SVG/Reply.svg') no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.chat__message__field__functions__delete__btn {
+    background: url('Images/SVG/DeleteMessage.svg') no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.chat__message__field__functions__ban__btn {
+    filter: invert(0);
+    border-color: #ff0000;
+    background: url('Images/SVG/Ban.svg') no-repeat;
+    background-size: contain;
+    background-position-y: center;
+    background-position-x: center;
+}
+
+.chat__message__field__functions__reply__btn:hover,
+.chat__message__field__functions__delete__btn:hover,
+.chat__message__field__functions__ban__btn:hover {
+    opacity: 1;
+}
+
+
+@media (max-width: 1440px) {
+    .chat__message__text__side {
+        width: 85%;
+    }
+
+    .chat__message {
+        width: 91.5%;
+    }
+
+    .chat__message__send {
+        width: 8%;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .chat__message__symbols {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .chat__message__field {
+        padding: 7px 0;
+    }
+
+    .chat__message__field__sender__user, .chat__message__field__sender__moder,
+    .chat__message__field__sender__admin, .chat__message__field__sender__mainAdmin,
+    .chat__message__field__sender__system {
+        font-size: 8px;
+    }
+
+    .chat__message__field__text__user, .chat__message__field__text__moder, 
+    .chat__message__field__text__admin, .chat__message__field__text__mainAdmin,
+    .chat__message__field__text__system {
+        font-size: 9px;
+        width: 55%;
+    }
+
+    .chat__message__field__functions {
+        width: 25%;
+    }
+
+    .chat__inner__bottom {
+        height: 40px;
+    }
+
+    .chat__message {
+        font-size: 12px;
+    }
+
+    .chat__message__send {
+        font-size: 11px;
+    }
+}
+
+
+@media (max-width: 570px) {
+    .chat__message__field {
+        padding: 8px 0;
+    }
+
+    .chat__message__symbols {
+        font-size: 10px;
+    }
+
+    .chat__message__field__sender__user, .chat__message__field__sender__moder,
+    .chat__message__field__sender__admin, .chat__message__field__sender__mainAdmin,
+    .chat__message__field__sender__system {
+        font-size: 7px;
+    }
+
+    .chat__message__field__text__user, .chat__message__field__text__moder, 
+    .chat__message__field__text__admin, .chat__message__field__text__mainAdmin,
+    .chat__message__field__text__system {
+        font-size: 8px;
+    }
+
+    .chat__message__field__functions__reply__btn,
+    .chat__message__field__functions__delete__btn,
+    .chat__message__field__functions__ban__btn {   
+        width: 18px;       
+        height: 18px;
+    }
+}
+
+
+@media (max-width: 470px) {
+    .chat {
+        margin-bottom: 8px;
+    }
+
+    .chat>.container {
+        padding: 0;
+    }
+
+    .chat__message__field {
+        padding: 9px 0;
+    }
+
+    .chat__message__field__sender__user, .chat__message__field__sender__moder,
+    .chat__message__field__sender__admin, .chat__message__field__sender__mainAdmin,
+    .chat__message__field__sender__system {
+        font-size: 6px;
+    }
+
+    .chat__message__field__text__user, .chat__message__field__text__moder, 
+    .chat__message__field__text__admin, .chat__message__field__text__mainAdmin,
+    .chat__message__field__text__system {
+        font-size: 9px;
+    }
+
+    .chat__message__field__functions__reply__btn,
+    .chat__message__field__functions__delete__btn,
+    .chat__message__field__functions__ban__btn {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chat__inner__bottom {
+        height: 40px;
+        margin: 5px 0 12px 0;
+    }
+
+    .chat__message {
+        font-size: 10px;
+    }
+
+    .chat__message__send {
+        font-size: 8px;
+    }
+
+    .chat__message__symbols {
+        font-size: 9px;
+    }
+}
+
+
+@media (max-width: 395px) {
+    .chat__message__field {
+       padding: 10px 0;
+    }
+
+    .chat__message__field__text__user, .chat__message__field__text__moder, 
+    .chat__message__field__text__admin, .chat__message__field__text__mainAdmin,
+    .chat__message__field__text__system {
+        font-size: 8px;
+    }
+
+    .chat__inner__bottom {
+        height: 36px;
+        margin: 4px 0 9px 0;
+    }
+
+    .chat__message__text__side {
+        width: 83%;
+    }
+
+    .chat__message {
+        font-size: 9px;
+        width: 82.5%;
+    }
+
+    .chat__message__send {
+        font-size: 7px;
+        width: 16%;
+    }
+
+    .chat__message__symbols {
+        font-size: 7px;
+    }
+}
+
+
+
+/*=================================================================
+Player*/
+.player {
+    justify-content: center;
+    max-width: 100%;
+    max-height: 110px;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.player__inner, .player__history__list {
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.205);
+    border-radius: 15px;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.chat__outerInfoScreen, .player__outerInfoScreen {
+    position: absolute;
+    background-color: #000000;
+    text-align: center;
+    margin: -10px;
+}
+
+.chat__outerInfoScreen {
+    height: 633px;
+    width: 1170px;
+    margin: inherit;
+    opacity: 0.85;
+    z-index: 2;
+}
+
+.player__outerInfoScreen {
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    z-index: 4;
+    opacity: .7;
+}
+
+.chat__innerInfoScreen, .player__innerInfoScreen {
+    font-size: xxx-large;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-46.5%, -50%);
+}
+
+.player__inner {
+    background-color: #00000090;
+    width: 100%;
+    height: 110px;
+    position: relative;     /*внутренние абсолютные позиции не выходят за этот блок*/
+    z-index: 3;
+}
+
+.player__history__list {
+    width: 1170px;
+    height: 440px;
+    z-index: 2;
+    position: absolute;
+    top: 323px;
+    background-color: #000000;
+    opacity: 0.94;
+    visibility: hidden;
+    overflow: auto;
+}
+
+.player__play__button, .player__right__side {
+    float: left;
+}
+
+.player__play__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85px;
+    height: 85px;
+    cursor: pointer;
+    position: relative;
+    background-color: #00000000;
+    border: none;
+}
+
+.player__play__button:active, :focus, .player__mode__sun:active, :focus, .player__mode__dayCloud:active, :hover, 
+.player__mode__moon:active, .player__mode__nightCloud:active, :hover, .player__mode__rainCloud:active, :hover,
+.player__mode__lightningCloud:active, :hover :focus, .player__auto__button:active, :hover {
+    outline: none;
+}
+
+.player__play__button__img {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    filter: invert(1);
+    opacity: .7;
+    transition-property: width, height, opacity;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+.player__play__button__img:hover {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+
+.player__right__side {
+    height: 100%;
+    width: 92%;
+}
+
+.player__text__information, .player__function__buttons {
+    float: left;
+    height: 35px;
+}
+
+.player__text__information {
+    width: 74%;
+    z-index: 1;
+}
+
+.player__function__buttons {
+    width: 26%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.player__name__song {
+    width: 100%;
+    height: 20px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    text-align: left;
+    margin: 0px 10px;
+}
+
+.player__artist__song {
+    width: 100%;
+    height: 15px;
+    color: #f0f8ff6e;
+    font-weight: bold;
+    font-size: 13px;
+    text-align: left;
+    margin: 0 10px;
+}
+
+.player__auto__button, .player__history__button, .player__update__button, .player__listeners {
+    height: 30px;
+    width: 30px;
+    background: transparent;
+    filter: invert(1);
+    opacity: 40%;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 30px;
+    margin: 0 4px;
+    cursor: pointer;
+}
+
+.player__history__button {
+    z-index: 2;
+}
+
+.player__auto__button__img, .player__history__button__img, .player__update__button__img {
+    height: 100%;
+    width: 100%;
+    z-index: 0;
+}
+
+.player__listeners {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    filter: invert(0.8);
+    width: 55%;
+    border: none;
+    opacity: 100%;
+    cursor: default;
+}
+
+.player__listeners__inner{
+    width: 25%;
+    height: 100%;
+    margin-right: 3px;
+}
+
+.player__listeners__inner__img {
+    width: 100%;
+    height: 100%;
+}
+
+.player__listeners__amount {
+    width: 5px;
+    filter: invert(1);
+    font-size: x-large;
+    z-index: 4;
+}
+
+.active__auto__player, .active__history, .active__update {
+    opacity: 100%;
+}
+
+.player__settings {
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+    top: 0;
+    left: 90px;
+    float: left;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.player__settings__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 70%;
+}
+
+.player__current__time, .player__end__time {
+  cursor: default;
+}
+
+.player__settings__buttons__left, .player__settings__buttons__center, .player__settings__buttons__right {
+    float: left;
+    width: 33.33333%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.player__settings__buttons__left {
+    justify-content: flex-start;
+}
+
+.player__settings__buttons__center {
+    justify-content: space-between;
+}
+
+.player__settings__buttons__right {
+    justify-content: flex-end;
+}
+
+.player__mode__sun, .player__mode__dayCloud, .player__mode__moon,
+.player__mode__nightCloud, .player__mode__rainCloud, .player__mode__lightningCloud {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    filter: invert(0.3);
+    border: 0;
+    background-color: #00000000;
+}
+
+.active__player {
+    filter: invert(1);
+    opacity: 1;
+    pointer-events: none;   /*отключает кнопку*/
+}
+
+.player__mode__sun__img, .player__mode__dayCloud__img, .player__mode__moon__img,
+.player__mode__nightCloud__img, .player__mode__rainCloud__img, .player__mode__lightningCloud__img {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    transition-property: width, height;
+    transition-duration: .1s;
+    transition-timing-function: linear;
+}
+
+.player__mode__sun__img:hover, .player__mode__dayCloud__img:hover, .player__mode__moon__img:hover,
+.player__mode__nightCloud__img:hover, .player__mode__rainCloud__img:hover, .player__mode__lightningCloud__img:hover {
+    width: 90%;
+    height: 90%;
+}
+
+.player__settings__buttons div {
+    margin: 5px;
+}
+
+.player__bar {
+    align-items: center;
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 35px;
+    overflow: hidden;
+}
+
+.player__queue__song {
+    cursor: pointer;
+}
+
+.player__set__time {
+    position: absolute;
+    top:0;
+    color: #ffffff;
+    font-size: 12px;
+    padding: 3px;
+    display: none;
+}
+
+.player__range, .player__progress, .player__load {
+    height: 10px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.player__range {
+    background: #547ea54f;
+}
+
+.player__progress, .player__load {
+    position: absolute;
+    left: -100%;
+    border-right: 1px solid #000000;
+}
+
+.player__progress {
+    background: #7d6ae9;
+    z-index: 1;
+}
+
+.player__load {
+    background: #505156;
+}
+
+.player__time {
+    font-size: 26px;
+    color: #ffffff;
+}
+
+.player__volume {
+    cursor: pointer;
+}
+
+.player__history__list__title {
+    color: #d3dee2;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+.player__history__list__songs {
+    color: #ffffff;
+    opacity: 0.85;
+    border-top: 1px solid #6c6fef40;
+    border-bottom: 1px solid #6c6fef40;
+    padding: 2px 0;
+}
+
+.player__history__playlist1, .player__history__playlist2,
+.player__history__playlist3, .player__history__playlist4,
+.player__history__playlist5, .player__history__playlist6 {
+    width: 100%;
+    display: none;
+}
+
+
+@media (max-width: 1440px) {
+    .player__history__list {
+        width: 97%;
+    }
+
+    .player__right__side {
+        width: 91%;
+    }
+
+    .player__listeners__amount {
+        font-size: 13px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .player {
+        max-height: 95px;
+    }
+
+    .player__inner {
+        height: 95px;
+    }
+
+    .player__play__button {
+        width: 73px;
+        height: 73px;
+    }
+
+    .player__right__side {
+        width: 90%;
+    }
+
+    .player__text__information, .player__function__buttons {
+        height: 27px;
+    }
+
+    .player__update__button, .player__history__button, .player__auto__button {
+        height: 27px;
+        width: 27px;
+        margin: 0 3px;
+    }
+
+    .player__listeners {
+        width: 45%;
+        height: inherit;
+    }
+
+    .player__listeners__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40%;
+    }
+
+    .player__listeners__inner__img {
+        width: 90%;
+        height: 90%;
+    }
+
+    .player__name__song {
+        font-size: 14px;
+        height: 16px;
+    }
+
+    .player__artist__song {
+        font-size: 11px;
+    }
+
+    .player__bar {
+        padding-top: 5px;
+    }
+
+    .player__settings__buttons__left {
+        font-size: 13px;
+    }
+
+    .player__history__list {
+        height: 346px;
+        top: 394px;
+        max-width: 770px;
+    }
+}
+
+
+@media (max-width: 781px) {
+    .player__right__side {
+        width: 89%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .player {
+        max-height: 85px;
+    }
+
+    .player__inner {
+        height: 85px;
+        padding: 7px;
+    }
+
+    .player__history__list__title {
+        font-size: 20px;
+    }
+
+    .player__innerInfoScreen {
+        font-size: 36px;
+    }
+
+    .player__play__button {
+        width: 68px;
+        height: 68px;
+    }
+
+    .player__right__side {
+        width: 86%;
+    }
+
+    .player__text__information {
+        width: 72%;
+    }
+
+    .player__name__song {
+        font-size: 13px;
+        height: 14px;
+    }
+
+    .player__artist__song {
+        font-size: 9px;
+    }
+
+    .player__function__buttons {
+        width: 28%;
+        z-index: 2;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .player__history__button {
+        width: 25px;
+    }
+
+    .player__auto__button__img, .player__history__button__img, 
+    .player__update__button__img {
+        width: 11px;
+        height: 68%;
+        background-size: contain;
+        background-position-y: center;
+        background-position-x: center;
+    }
+
+    .player__update__button, .player__history__button, .player__auto__button {
+        height: 25px;
+        width: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .player__listeners {
+        width: 105px;
+        height: inherit;
+    }
+
+    .player__listeners__inner {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .player__listeners__inner__img {
+        width: 23px;
+        height: 90%;
+    }
+
+    .player__bar {
+        height: 28px;
+    }
+
+    .player__settings__buttons__left {
+        font-size: 11px;
+    }
+
+    .player__mode__sun, .player__mode__dayCloud, .player__mode__moon,
+    .player__mode__nightCloud, .player__mode__rainCloud, .player__mode__lightningCloud {
+        width: 16.66666%;
+        height: 125%;
+    }
+    
+    .player__volume {
+        width: 100px;
+        height: 50px;
+    }
+
+    .player__range, .player__progress, .player__load {
+        height: 9px;
+    }
+
+    .player__history__list {
+        height: 327px;
+        width: 95%;
+    }
+}
+
+
+@media (max-width: 660px) {
+    .player__update__button, .player__history__button, .player__auto__button {
+        width: 19px;
+        height: 19px;
+        margin: 0 2px;
+    }
+
+    .player__listeners {
+        width: 34%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .player__listeners__inner {
+        width: 65%;
+        margin: 0;
+    }
+}
+
+
+@media (max-width: 570px) {
+    .player__play__button {
+        width: 61px;
+    }
+
+    .player__right__side {
+        width: 85%;
+    }
+
+    .player__text__information {
+        width: 63%;
+    }
+
+    .player__name__song {
+        font-size: 12px;
+    }
+
+    .player__artist__song {
+        height: 11px;
+        margin-top: 2px;
+    }
+
+    .player__function__buttons {
+        width: 37%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .player__auto__button, .player__history__button, .player__update__button {
+        width: 19px;
+        height: 19px;
+        margin: 0 1px;
+    }
+
+    .player__listeners {
+        width: 50%;
+        margin-left: 2px;
+    }
+
+    .player__listeners__inner {
+        width: 35%;
+    }
+
+    .player__listeners__amount {
+        font-size: 12px;
+        position: relative;
+        left: 2px;
+    }
+
+    .player__settings__buttons__left {
+        font-size: 10px;
+    }
+
+    .player__volume {
+        width: 90px;
+        height: 40px;
+    }
+
+    .player__range, .player__progress, .player__load {
+        height: 8px;
+    }
+}
+
+
+@media (max-width: 470px) {
+    .player {
+        max-height: 75px;
+        margin-bottom: 8px;
+    }
+
+    .player>.container {
+        padding: 0;
+    }
+
+    .player__inner {
+        height: 75px;
+    }
+
+    .player__history__list {
+        width: 100%;
+        height: 267px;
+    }
+
+    .player__history__list__songs {
+        height: 231px;
+    }
+
+    .player__history__list__song {
+        padding: 1px 0;
+        font-size: 11px;
+    }
+
+    .player__play__button {
+        width: 56px;
+        height: 100%;
+    }
+
+    .player__right__side {
+        width: 85%;
+    }
+
+    .player__text__information {
+        height: 25px;
+        width: 60%;
+    }
+
+    .player__name__song {
+        font-size: 11px;
+        height: 14px;
+    }
+
+    .player__artist__song {
+        margin-top: 1px;
+        font-size: 8px;
+    }
+
+    .player__function__buttons {
+        height: 25px;
+    }
+
+    .player__listeners__inner {
+        width: 24px;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .player__listeners__amount {
+        font-size: 9px;
+    }
+
+    .player__bar {
+        height: 23px;
+        margin-bottom: 3px;
+    }
+
+    .player__settings__buttons {
+        height: 75%;
+    }
+
+    .player__settings__buttons__left, .player__settings__buttons__right {
+        width: 25%;
+    }
+
+    .player__settings__buttons__left {
+        font-size: 9px;
+    }
+
+    .player__settings__buttons__center {
+        width: 45%;
+    }
+
+    .player__mode__sun, .player__mode__dayCloud, 
+    .player__mode__moon, .player__mode__nightCloud, 
+    .player__mode__rainCloud, .player__mode__lightningCloud {
+        height: 160%;
+    }
+
+    .player__volume {
+        width: 80%;
+        height: 45%;
+    }
+    
+    .player__range {
+        height: 6px;
+    }
+
+    .player__range, .player__progress, .player__load {
+        height: 6px;
+    }
+}
+
+
+@media (max-width: 395px) {
+    .player {
+        max-height: 55px;
+    }
+
+    .player__inner {
+        height: 55px;
+    }
+
+    .player__play__button {
+        width: 40px;
+    }
+
+    .player__right__side {
+        width: 80%;
+    }
+
+    .player__text__information {
+        width: 55%;
+        height: 15px;
+    }
+
+    .player__function__buttons {
+        width: 45%;
+        height: 15px;
+    }
+
+    .player__name__song {
+        font-size: 8px;
+        height: 66.66667%;
+    }
+
+    .player__artist__song {
+        margin-top: 0;
+        font-size: 6px;
+        height: 33.33333%;
+    }
+
+    .player__update__button, .player__history__button, .player__auto__button {
+        width: 15px;
+        height: 15px;
+    }
+
+    .player__listeners {
+        width: 28%;
+    }
+
+    .player__listeners__inner {
+        height: 100%;
+        width: 17px;
+    }
+
+    .player__listeners__inner__img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .player__listeners__amount {
+        font-size: 6px;
+    }
+
+    .player__bar {
+        height: 17px;
+        margin-bottom: 4px;
+    }
+
+    .player__settings__buttons__left, .player__settings__buttons__right {
+        width: 25%;
+    }
+
+    .player__settings__buttons__left {
+        font-size: 5px;
+    }
+
+    .player__settings__buttons__center {
+        width: 50%;
+    }
+
+    .player__range, .player__progress, .player__load {
+        height: 4px;
+    }
+}
+
+
+
+/*=================================================================
+Footer*/
+.footer {
+    width: 100%;
+    height: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.205);
+    border-radius: 15px;
+    background-color: #00000090;
+}
+
+.footer__inner {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.footer__inner>.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0;
+    padding: 0 15px;
+}
+
+.footer__block__left, .footer__block__right {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+.footer__block__left {
+    display: flex;
+    height: 80px;
+    cursor: default;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    flex-direction: column;
+}
+
+.footer__block__right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__block__main__text {
+    font-size: 16px;
+    color: #ffff0075;
+    justify-content: center;
+    text-align: left;
+    font-style: italic;
+}
+
+.footer__weather__country, .footer__weather__sunrise, .footer__weather__sunset, .footer__weather__localtime {
+    position: relative;
+    color: #e9a6ff;
+}
+
+.footer__author {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    right: 0;
+    width: 33.33333%;
+    height: 100%;
+}
+
+.footer__author__picture {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 35px;
+    max-height: 35px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.footer__social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 35px;
+    max-height: 35px;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    opacity: .7;
+    transition: opacity .1s ease-in-out;
+}
+
+.footer__social__icon:hover {
+    opacity: 1;
+}
+
+.footer__author__text {
+    display: flex;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #1e5353;
+    font-style: italic;
+    text-align: center;
+}
+
+.footer__online {
+    display: flex;
+    width: 33.33333%;
+    height: inherit;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__online__btn {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 12px;
+    margin-right: 1px;
+    background: transparent;
+    cursor: pointer;
+    filter: invert(1);
+    opacity: 60%;
+    transition-property: opacity;
+    transition-duration: .15s;
+}
+
+.footer__online__btn:hover {
+    opacity: 100%;
+}
+
+.footer__online__btn__img {
+    width: 100%;
+    height: 100%;
+}
+
+.footer__online__number {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    color: #ffffff;
+    opacity: 80%;
+    margin-left: 1px;
+}
+
+.footer__settings {
+    display: flex;
+    justify-content: center;
+    width: 33.33333%;
+    height: 100%;
+    align-items: center;
+}
+
+.footer__settings__button {
+    font-weight: bold;
+    border: 1px solid #000000;
+    opacity: 40%;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    filter: invert(1);
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: .15s;
+    transition-timing-function: ease-in-out;
+    z-index: 5;
+    position: relative;
+}
+
+.footer__settings__button:hover {
+    opacity: 100%;
+}
+
+.footer__settings__button__img {
+    width: 70%;
+    height: 70%;
+}
+
+
+@media (max-width: 1440px) {
+
+}
+
+
+@media (max-width: 1024px) {
+    .footer {
+        height: 95px;
+    }
+
+    .footer__block__left {
+        justify-content: center;
+        height: 100%;
+    }
+
+    .footer__block__main__text {
+        font-size: 14px;
+    }
+
+    .footer__weather__country, .footer__weather__sunrise, .footer__weather__sunset, .footer__weather__localtime {
+        font-size: 9px;
+    }
+
+    .footer__author {
+        margin: 0;
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .footer__inner>.container {
+        padding: 0 0 0 15px;
+    }
+
+    .footer__block__main__text {
+        font-size: 12px;
+    }
+
+    .footer__weather__country, .footer__weather__sunrise, .footer__weather__sunset, .footer__weather__localtime {
+        font-size: 8px;
+    }
+
+    .footer__author__text {
+        font-size: 11px;
+    }
+
+    .footer__online__number {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 610px) {
+    .footer {
+        height: 75px;
+    }
+
+    .footer__online__number {
+        font-size: 16px;
+    }
+
+    .footer__settings__button {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+
+@media (max-width: 520px) {
+    .footer__author__text {
+        font-size: 9px;
+    }
+
+    .footer__online__btn {
+        width: 32px;   
+        height: 32px;
+    }
+
+    .footer__online__number {
+        font-size: 12px;
+    }
+
+    .footer__settings__button {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+
+@media (max-width: 425px) {
+    .footer__left__container {
+        margin-left: 0;
+    }
+
+    .footer__block__left {
+        width: 60%;
+    }
+
+    .footer__block__main__text {
+        font-size: 11px;
+    }
+
+    .footer__weather__country, .footer__weather__localtime,
+    .footer__weather__sunrise, .footer__weather__sunset {
+        font-size: 8px;
+    }
+
+    .footer__author__picture {
+        max-width: 30px;
+        max-height: 30px;
+    }
+
+    .footer__author__text {
+        font-size: 9px;
+    }
+
+    .footer__online__btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    .footer__online__number {
+        font-size: 10px;
+    }
+
+    .footer__settings__button {
+        width: 37px;
+        height: 37px;
+    }
+}
+
+
+@media (max-width: 395px) {
+    .footer {
+        height: 55px;
+    }
+
+    .footer__block__left {
+        width: 55%;
+    }
+
+    .footer__block__main__text {
+        font-size: 8px;
+    }
+
+    .footer__weather__country, .footer__weather__localtime, 
+    .footer__weather__sunrise, .footer__weather__sunset {
+        font-size: 5px;
+    }
+
+    .footer__author__picture {
+        max-width: 20px;
+        max-height: 20px;
+    }
+
+    .footer__author__text {
+        font-size: 6px;
+    }
+
+    .footer__online__btn {
+        width: 18px;
+        height: 18px;
+        display: flex;
+        border-radius: 5px;
+        justify-content: center;
+    }
+
+    .footer__online__btn__img {
+        width: 200%;
+    }
+
+    .footer__online__number {
+        font-size: 6px;
+    }
+
+    .footer__settings__button {
+        width: 25px;
+        height: 25px;
+    }
+
+    .footer__settings__button__img {
+        width: 65%;
+        height: 65%;
+    }
+}
+
+
+
+/*=================================================================
+Dialog*/
+.dialog {
+    z-index: 15;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog__window {
+    z-index: 16;
+    position: relative;
+    width: 600px;
+    height: 450px;
+    border-style: solid;
+    border-color: #ffffff;
+    border-width: 1px;
+    border-radius: 15px;
+    background: #001524;
+    padding: 5px;
+}
+
+.dialog__window__header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    border-bottom-style: solid;
+    border-bottom-color: #ffffff50;
+    border-bottom-width: 1px;
+    justify-content: center;
+}
+
+.dialog__window__header__title, .dialog__window__header__controls {
+    height: 100%;
+}
+
+.dialog__window__header__title {
+    width: 80%;
+    display: flex;
+    font-size: 24px;
+    padding-left: 5px;
+    align-items: center;
+}
+
+.dialog__window__header__controls {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog__close__btn {
+    width: 23px;
+    height: 23px;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 15px;
+    filter: invert(1);
+    opacity: 60%;
+    cursor: pointer;
+    transition-property: opacity;
+    transition-duration: .15s;
+}
+
+.dialog__close__btn:hover {
+    opacity: 100%;
+}
+
+.dialog__close__btn__img {
+    width: 100%;
+    height: 100%;
+}
+
+.dialog__window__body {
+    width: 100%;
+    height: 90%;
+    padding: 3px 10px 10px 10px;
+}
+
+.dialog__delete__message, .dialog__ban, .dialog__usersInfo, .dialog__settings {
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.dialog__delete__message__text {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #ffffff;
+}
+
+.dialog__delete__message__buttons, .dialog__ban__buttons {
+    width: 100%;
+    height: 10%;
+    display: flex;
+}
+
+.dialog__delete__message__buttons__approve, .dialog__delete__message__buttons__cancel,
+.dialog__ban__buttons__approve, .dialog__ban__buttons__cancel {
+    width: 50%;
+    height: 100%;
+    padding: 3px;
+    background: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    cursor: pointer;
+    border: solid 1px #ffffff00;
+    transition-property: border;
+    transition-duration: .15s;
+}
+
+.dialog__delete__message__buttons__approve:hover, .dialog__delete__message__buttons__cancel:hover,
+.dialog__ban__buttons__approve:hover, .dialog__ban__buttons__cancel:hover {
+    border: solid 1px #ffffff80;
+}
+
+.dialog__ban__userLogin {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+}
+
+.dialog__ban__cause, .dialog__ban__time {
+    width: 100%;
+    height: 37.5%;
+    display: flex;
+    align-items: center;
+}
+
+.dialog__ban__cause__text, .dialog__ban__time__text {
+    margin-right: 5px;
+}
+
+.dialog__ban__time {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #ffffff;
+}
+
+.dialog__ban__cause__textInput, .dialog__ban__time__textInput {
+    font-family: 'Montserrat', sans-serif;
+    border-style: groove;
+    background: transparent;
+    border-radius: 7px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.dialog__usersInfo__notOnline, .dialog__usersInfo__online {
+    width: 100%;
+    height: 7%;
+}
+
+.dialog__usersInfo__notOnline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog__usersInfo__online {
+    display: block;
+}
+
+.dialog__usersInfo__notOnline__guests, .dialog__usersInfo__notOnline__registered {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.val_guests, .val_registered {
+    margin-left: 4px;
+}
+
+.dialog__usersInfo__online__amount {
+    width: 100%;
+    text-align: center;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.dialog__usersInfo__online__list__user {
+    width: 100%;
+    text-align: center;
+}
+
+.dialog__background__settings {
+    width: 100%;
+    border-bottom-style: outset;
+    border-bottom-width: 1px;
+    border-bottom-color: #00ff00;
+    margin-bottom: 6px;
+}
+
+.dialog__background__settings__title {
+    font-size: 14px;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 3px;
+}
+
+.dialog__background__settings__options {
+    width: 100%;
+    padding: 2px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dialog__background__settings__options__sun,
+.dialog__background__settings__options__dayCloud,
+.dialog__background__settings__options__moon,
+.dialog__background__settings__options__nightCloud,
+.dialog__background__settings__options__rainCloud,
+.dialog__background__settings__options__lightningCloud {
+    width: 6%;
+    height: 100%;
+    filter: invert(100%);
+    opacity: 40%;
+    cursor: pointer;
+}
+
+.dialog__background__settings__options__sun__img,
+.dialog__background__settings__options__dayCloud__img,
+.dialog__background__settings__options__moon__img,
+.dialog__background__settings__options__nightCloud__img,
+.dialog__background__settings__options__rainCloud__img,
+.dialog__background__settings__options__lightningCloud__img {
+    width: 100%;
+    height: 100%;
+}
+
+.background__active {
+    cursor: default;
+    opacity: 100%;
+}
+
+
+@media (max-width: 470px) {
+    .dialog__window__header__title {
+        font-size: 18px;
+    }
+
+    .dialog__usersInfo__notOnline__guests, .dialog__usersInfo__notOnline__registered,
+    .dialog__usersInfo__online {
+        font-size: 11px;
+    }
+
+    .dialog__background__settings__title {
+        font-size: 12px;
+    }
+}
+
+
+@media (max-width: 395px) {
+    .dialog__window__header__title {
+        font-size: 14px;
+    }
+
+    .dialog__usersInfo__notOnline__guests, .dialog__usersInfo__notOnline__registered,
+    .dialog__usersInfo__online {
+        font-size: 9px;
+    }
+
+    .dialog__background__settings__title {
+        font-size: 10px;
+    }
+}
+
+
+@media (max-height: 470px) {
+    .dialog__window__body {
+        height: 100%;
+    }
+}

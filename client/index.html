@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!--для остальных ус-тв-->
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">  <!-- подключение стилей -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <meta name="robots" content = "all">
+    <meta name="description" lang="ru" content="Расслабься под любую погоду">
+    <meta name="keywords" lang="ru" content="радио, муз радио, погода, радио погода">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;600&family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Titillium+Web:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/Images/Favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Images/Favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/Images/Favicons/favicon-16x16.png">
+    <link rel="manifest" href="/Images/Favicons/site.webmanifest">
+    <title>Weather Radio</title>
+</head>
+<body>
+
+	<!--Header-->
+	<header class="header">
+	    <div class="header__inner">
+	        <div class="header__logo">
+	            <img class="header__img" src="Images/Example_Logo2.png" alt="logo">
+	        </div>
+            <div class="header__weather">
+                <div class="header__weather__info">
+                    <div class="header__weather__info__picture">
+                        <img class="header__weather__info__picture__img" id="header-weather__info__picture__img" src="Images/Weather/01d.png">
+                    </div>
+                    <div class="header__weather__info__text">
+                        <div class="header__weather__info__text__mainData">
+                            <div class="header__weather__info__text__mainData__city"><span class="val-city"></span></div>
+                            <div class="header__weather__info__text__mainData__temperature"><span class="val-temp"></span>°C</div>
+                        </div>
+                        <div class="header__weather__info__text__elseData">
+                            <p class="header__weather__info__text__elseData__state"><span class="val-state"></span></p>
+                            <p class="header__weather__info__text__elseData__wind">Ветер: <span class="val-wind"></span>
+                                <select class="header__weather__info__text__elseData__wind__select" id="header-weather__info__wind__select">
+                                    <option>м/с</option>
+                                    <option>м/ч</option>
+                                    <option>км/с</option>
+                                    <option>км/ч</option>
+                                    <option>дюйм/с</option>
+                                    <option>дюйм/ч</option>
+                                    <option>шаг(-ов)/с</option>
+                                    <option>шаг(-ов)/ч</option>
+                                    <option>миль/с</option>
+                                    <option>миль/ч</option>
+                                    <option>узел(-ов)</option>
+                                </select>
+                            </p>
+                            <p class="header__weather__info__text__elseData__pressure">Давление: <span class="val-pressure"></span>
+                                <select class="header__weather__info__text__elseData__pressure__select" id="header-weather__info__pressure__select">
+                                    <option>мм.рт.ст.</option>
+                                    <option>мм.вод.ст.</option>
+                                    <option>Па</option>
+                                    <option>кПа</option>
+                                    <option>МПа</option>
+                                    <option>бар</option>
+                                    <option>ат</option>
+                                    <option>атм</option>
+                                    <option>psi</option>
+                                    <option>osi</option>
+                                </select>
+                            </p>
+                            <p class="header__weather__info__text__elseData__humidity">Влажность: <span class="val-humidity"></span>%</p>
+                            <p class="header__weather__info__text__elseData__lastUpdate">По состоянию на <span class="val-lastUpdate"></span></p>
+                        </div>
+                    </div>
+                </div>
+                <form class="header__weather__input">
+                    <input type="text" name="city" id="header-weather__city__text" class="header__weather__input__text" value="Мозырь" placeholder="Введите город">
+                    <div class="header__weather__city__btns">
+                        <input type="submit" id="header-weather__city__btns__change" class="header__weather__input__buttons__change" value="Изменить">
+                        <!--input type="submit" id="header-weather__city__btns__define" class="header__weather__input__buttons__define" value="Определить"-->
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="header__buttons" id="header-buttons">
+                <button class="header__buttons__auth" id="header-auth__btn"></button>
+                <button class="header__buttons__reg" id="header-reg__btn"></button>
+                <button class="header__buttons__logout" id="header-logout__btn"></button>
+                <div class="header__auth__menu" id="header-auth__menu">
+                    <p><label for="login" class="header__menu__txt"><b>Логин:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-auth__menu__loginfield" type="text" placeholder="Введите логин" name="login" required></p>
+                    <p><label for="password" class="header__menu__txt"><b>Пароль:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-auth__menu__passwordfield" type="password" placeholder="Введите пароль" name="password" required></p>
+                    <p class="header__menu__padding"><button type="submit" class="header__auth__menu__btn" id="header-auth__menu__btn">Авторизоваться</button></p>
+                </div>
+                <div class="header__reg__menu" id="header-reg__menu">
+                    <p><label for="login" class="header__menu__txt"><b>Логин:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-reg__menu__loginfield" type="text" placeholder="Введите логин (3 - 30 символов)" name="login" required></p>
+                    <p><label for="email" class="header__menu__txt"><b>E-mail:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-reg__menu__emailfield" type="text" placeholder="Введите e-mail" name="password" required></p>
+                    <p><label for="password" class="header__menu__txt"><b>Пароль:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-reg__menu__passwordfield" type="password" placeholder="Введите пароль (6 - 50 символов)" name="password" required></p>
+                    <p><label for="conf_password" class="header__menu__txt"><b>Подтверждение пароля:</b></label></p>
+                    <p class="header__menu__padding"><input class="header__menu__field" id="header-reg__menu__confpasswordfield" type="password" placeholder="Подтвердите пароль" name="conf_password" required></p>
+                    <p class="header__menu__padding"><button type="submit" class="header__reg__menu__btn" id="header-reg__menu__btn">Зарегистрироваться</button></p>
+                </div>
+            </div>
+	    </div>
+	</header>
+
+
+	<!--Chat-->
+	<div class="chat" id="chat">
+	    <div class="container">
+	        <div class="chat__inner" id="chat-inner">
+                <div class="chat__inner__top" id="chat-inner__top">
+	                <div id="all_messages"></div>
+	            </div>
+                <div class="chat__inner__bottom">
+	                <form class="chat__message__form" id="message_form">
+                        <textarea name="message" id="chat-user__message" class="chat__message" placeholder="Введите сообщение"></textarea>
+	                    <input type="submit" class="chat__message__send" id="chat-message__send" value="">
+	                </form>
+                    <div class="chat__message__symbols" id="chat-message__symbols">Символов: <span class="val-symbols">0</span> / <span class="val-max_symbols"></span></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+
+    <!--Player-->
+	<div class="player">
+	    <div class="container">
+	        <div class="player__inner">
+                <div class="player__outerInfoScreen", id="player-outerInfoScreen">
+                    <span class="player__innerInfoScreen", id="player-innerInfoScreen">Загрузка...</span>
+                </div>
+                <button type="button" class="player__play__button" id="player-play__button">
+	                <img src="Images/SVG/PlayRoundButton.svg" alt="Play" class="player__play__button__img" id="player-play__button__img">
+	            </button>
+	            <div class="player__right__side" id="player-right__side">
+                    <div class="player__text__information">
+                        <div class="player__name__song" id="player-name__song"></div>
+                        <div class="player__artist__song" id="player-artist__song"></div>
+                    </div>
+                    <div class="player__function__buttons">
+                        <button class="player__update__button" id="player-update__button">
+                            <img class="player__update__button__img" id="player-update__button__img" src="Images/SVG/UpdatePlayer.svg" alt="Refresh player">
+                        </button>
+                        <!-- button class="player__history__button" id="player-history__button">
+                            <img class="player__history__button__img" id="player-history__button__img" src="Images/SVG/History.svg" alt="Watch played before">
+                        </button -->
+                        <button class="player__auto__button" id="player-auto__button">
+                            <img class="player__auto__button__img" id="player-auto__button__img" src="Images/SVG/LetterA.svg" alt="Auto mode">
+                        </button>
+                        <div class="player__listeners">
+                            <div class="player__listeners__inner">
+                                <img class="player__listeners__inner__img" src="Images/SVG/Listener.svg" alt="Auto mode">
+                            </div>
+                            <div class="player__listeners__amount" id="player-listeners__amount">0</div>
+                        </div>
+                    </div>
+	                <div class="player__bar">
+	                    <div class="player__settings__buttons">
+	                        <div class="player__settings__buttons__left">
+	                            <div class="player__current__time" id="player-current__time">00:00</div>
+	                            /
+	                            <div class="player__end__time" id="player-end__time">00:00</div>
+	                        </div>
+	                        <div class="player__settings__buttons__center">
+	                            <button type="button" class="player__mode__sun" id="player-default__mode">
+	                                <img class="player__mode__sun__img" src="Images/SVG/Sun.svg" alt="Sun clear">
+	                            </button>
+                                <button type="button" class="player__mode__dayCloud">
+	                                <img class="player__mode__dayCloud__img" src="Images/SVG/DayCloud.svg" alt="Cloudy day">
+	                            </button>
+                                <button type="button" class="player__mode__moon">
+	                                <img class="player__mode__moon__img" src="Images/SVG/Moon.svg" alt="Moon clear">
+	                            </button>
+	                            <button type="button" class="player__mode__nightCloud">
+	                                <img class="player__mode__nightCloud__img" src="Images/SVG/NightCloud.svg" alt="Cloudy night">
+	                            </button>
+	                            <button type="button" class="player__mode__rainCloud">
+	                                <img class="player__mode__rainCloud__img" src="Images/SVG/RainCloud.svg" alt="Rain">
+	                            </button>
+                                <button type="button" class="player__mode__lightningCloud">
+	                                <img class="player__mode__lightningCloud__img" src="Images/SVG/LightningCloud.svg" alt="Lightning">
+	                            </button>
+	                        </div>
+	                        <div class="player__settings__buttons__right">
+	                            <input type="range" class="player__volume" id="player-volume" min="0" max="100" step="1" value="100">
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="player__range">
+	                    <div class="player__progress" id="player-progress"></div>
+	                    <div class="player__load" id="player-load"></div>
+	                </div>
+	            </div>
+	        </div>
+            <!-- div class="player__history__list" id="player-history__list">
+                <p class="player__history__list__title">История (данные по серверу):</p>
+                <div class="player__history__list__songs" id="player-history__list__songs">
+                    <div class="player__history__playlist1" id="player-history__playlist1"></div>
+                    <div class="player__history__playlist2" id="player-history__playlist2"></div>
+                    <div class="player__history__playlist3" id="player-history__playlist3"></div>
+                    <div class="player__history__playlist4" id="player-history__playlist4"></div>
+                    <div class="player__history__playlist5" id="player-history__playlist5"></div>
+                    <div class="player__history__playlist6" id="player-history__playlist6"></div>
+                </div>
+            </div -->
+	    </div>
+	</div>
+
+
+	<!--Footer-->
+	<footer class="footer" id="footer">
+        <div class="footer__inner" id="footer-inner">
+            <div class="footer__left__container"></div>
+            <div class="container">
+                <div class="footer__block__left">
+                    <div class="footer__block__main__text">Дополнительная информация</div>
+                    <p class="footer__weather__country">Страна: <span class="val-country-footer"></span></p>
+                    <p class="footer__weather__sunrise">Рассвет: <span class="val-sunrise-footer"></span></p>
+                    <p class="footer__weather__sunset">Закат: <span class="val-sunset-footer"></span></p>
+                    <p class="footer__weather__localtime">Местное время: <span class="val-localtime-footer"></span></p>
+                </div>
+                <div class="footer__block__right">
+                    <div class="footer__author">
+                        <div class="footer__author__picture">
+                            <a href="https://t.me/Artoria_Pendragon_Britania" target="_blank">
+                                <img class="footer__social__icon" src="Images/SVG/TelegramIcon.svg" alt="Telegram">
+                            </a>
+                        </div>
+                        <div class="footer__author__text">
+                            Владелец сайта
+                        </div>
+                    </div>
+                    <div class="footer__online">
+                        <button class="footer__online__btn" id="footer-online__btn">
+                            <img class="footer__online__btn__img" src="Images/SVG/UserOnline.svg" alt="Онлайн">
+                        </button>
+                        <div class="footer__online__number" id="footer-online__number">0</div>
+                    </div>
+                    <div class="footer__settings">
+                        <div type="button" class="footer__settings__button" id="footer-styles">
+                            <img class="footer__settings__button__img" src="Images/SVG/Settings.svg" alt="Настройки">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+	</footer>
+
+
+    <!-- Dialog -->
+    <div class="dialog" id="dialog">
+        <div class="dialog__window" id="dialog-window">
+            <div class="dialog__window__header">
+                <div class="dialog__window__header__title" id="dialog-window__header__title"></div>
+                <div class="dialog__window__header__controls">
+                    <button class="dialog__close__btn" id="dialog-close__btn">
+                        <img class="dialog__close__btn__img" src="Images/SVG/CloseButton.svg" alt="Закрыть">
+                    </button>
+                </div>
+            </div>
+            <div class="dialog__window__body" id="dialog-window__body">
+                <div class="dialog__delete__message" id="dialog-delete__message">
+                    <p class="dialog__delete__message__text" id="dialog-delete__message__text"></p>
+                    <div class="dialog__delete__message__buttons">
+                        <button class="dialog__delete__message__buttons__approve" id="dialog-delete__message__buttons__approve">Да</button>
+                        <button class="dialog__delete__message__buttons__cancel" id="dialog-delete__message__buttons__cancel">Нет</button>
+                    </div>
+                </div>
+                <div class="dialog__ban" id="dialog-ban">
+                    <p class="dialog__ban__userLogin" id="dialog-ban__userLogin">Выдать бан пользователю: <b><span class="val-loginBan"></span></b></p>
+                    <div class="dialog__ban__cause" id="dialog-ban__cause">
+                        <p class="dialog__ban__cause__text">Причина:</p>
+                        <input type="text" class="dialog__ban__cause__textInput" id="dialog-ban__cause__textInput">
+                    </div>
+                    <div class="dialog__ban__time" id="dialog-ban__time">
+                        <p class="dialog__ban__time__text">Продолжительность бана (в минутах):</p>
+                        <input type="text" class="dialog__ban__time__textInput" id="dialog-ban__time__textInput">
+                    </div>
+                    <div class="dialog__ban__buttons">
+                        <button class="dialog__ban__buttons__approve" id="dialog-ban__buttons__approve">Забанить</button>
+                        <button class="dialog__ban__buttons__cancel" id="dialog-ban__buttons__cancel">Отмена</button>
+                    </div>
+                </div>
+                <div class="dialog__usersInfo" id="dialog-usersInfo">
+                    <div class="dialog__usersInfo__notOnline">
+                        <p class="dialog__usersInfo__notOnline__guests" id="dialog-usersInfo__notOnline__guests">
+                            Гостей: <span class="val_guests">0</span>
+                        </p>
+                        <p class="dialog__usersInfo__notOnline__registered" id="dialog-usersInfo__notOnline__registered">
+                            Зарегистрировано: <span class="val_registered">0</span>
+                        </p>
+                    </div>
+                    <div class="dialog__usersInfo__online">
+                        <p class="dialog__usersInfo__online__amount" id="dialog-usersInfo__online__amount">
+                            Онлайн: <span class="val_online">0</span>
+                        </p>
+                        <div class="dialog__usersInfo__online__list" id="dialog-usersInfo__online__list"></div>
+                    </div>
+                </div>
+                <div class="dialog__settings" id="dialog-settings">
+                    <div class="dialog__background__settings" id="dialog-background__settings">
+                        <p class="dialog__background__settings__title">Фон сайта</p>
+                        <div class="dialog__background__settings__options">
+                            <div type="button" class="dialog__background__settings__options__sun">
+                                <img src="Images/SVG/Sun.svg" alt="Light sunny style" class="dialog__background__settings__options__sun__img">
+                            </div>
+                            <div type="button" class="dialog__background__settings__options__dayCloud">
+                                <img src="Images/SVG/DayCloud.svg" alt="Light cloudy style" class="dialog__background__settings__options__dayCloud__img">
+                            </div>
+                            <div type="button" class="dialog__background__settings__options__moon">
+                                <img src="Images/SVG/Moon.svg" alt="Dark style" class="dialog__background__settings__options__moon__img">
+                            </div>
+                            <div type="button" class="dialog__background__settings__options__nightCloud">
+                                <img src="Images/SVG/NightCloud.svg" alt="Dark cloudy style" class="dialog__background__settings__options__nightCloud__img">
+                            </div>
+                            <div type="button" class="dialog__background__settings__options__rainCloud">
+                                <img src="Images/SVG/RainCloud.svg" alt="Rainy style" class="dialog__background__settings__options__rainCloud__img">
+                            </div>
+                            <div type="button" class="dialog__background__settings__options__lightningCloud">
+                                <img src="Images/SVG/LightningCloud.svg" alt="Lightning style" class="dialog__background__settings__options__lightningCloud__img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+	<!-- Подключение сторонних скриптов -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+    <!-- Скрипт для сервисных функций -->
+    <script src="Service/ServiceScript.js" type="text/javascript"></script>
+    <!-- Скрипты для шапки -->
+    <script src="Header/HeaderScript.js" type="text/javascript"></script>
+    <script src="Header/Weather/HeaderWeatherScript.js" type="text/javascript"></script>
+    <script src="Header/Authentification and registration/HeaderAuthRegScript.js" type="text/javascript"></script>
+    <script src="Header/Authentification and registration/Interface/HeaderAuthRegInterfaceScript.js" type="text/javascript"></script>
+    <!-- Скрипт для чата -->
+    <script src="Chat/ChatScript.js" type="text/javascript"></script>
+    <!-- Скрипт для плеера -->
+    <script src="Player/PlayerScript.js" type="text/javascript"></script>
+    <!-- Скрипты для подвала -->
+    <script src="Footer/FooterScript.js" type="text/javascript"></script>
+    <script src="Footer/Additional Information/FooterTimeScript.js" type="text/javascript"></script>
+    <script src="Footer/Service Objects/FooterOnlineScript.js" type="text/javascript"></script>
+    <script src="Footer/General Settings/FooterSettingsScript.js" type="text/javascript"></script>
+    <!-- Скрипт для диалогового окна -->
+    <script src="Dialog/DialogScript.js" type="text/javascript"></script>
+</body>
+</html>

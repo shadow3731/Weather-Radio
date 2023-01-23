@@ -1,0 +1,5 @@
+INSERT INTO heroku_080df79e41a6994.users (id, login, password, email, privilege, registration, last_online) VALUES
+(1, 'admin', '$2b$05$FStfA/rM8WUVrR5br7tiw.4L7rEko9WqOijAk3BNMpVPN67niHs3S', 'someEmail', 4, '2022-11-14', '2023-01-20 17:29:36'),
+(2, 'Продуктовый', '$2b$05$FKVY7YawXBXOadwW2zgd1OuOJius.kltwK18sIg4kdtC4YBOLQafC', '123', 1, '2023-01-20', '2023-01-20 17:03:39'),
+(3, 'moba', '$2b$05$rJro6r1LuClrHeqYFDCayequuNtV6D43B2ilQh39pihV9VNmaFHNy', 'test@test', 3, '2023-01-20', '2023-01-20 19:29:28'),
+(4, 'newUser', '$2b$05$WYMOq/M89gkDJ.9FUbwM7uWN8vRudMF9omsxjRmicpgCjbwvdDsgy', 'test@test2', 2, '2023-01-20', '2023-01-20 19:29:56');
