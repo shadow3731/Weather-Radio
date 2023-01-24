@@ -16,7 +16,7 @@ server.listen(PORT, () => {				//запуск сервера
 
 app.use(express.static('client'));		//работа статических элементов
 app.get('/', (req, res) => {	//получение маршрута к HTML-документу
-	res.sendFile(`${__dirname}/client/index.html`);
+	res.sendFile(`${__dirname}/index.html`);
 });
 
 
@@ -27,11 +27,11 @@ let socketLogin = new Array();			//массив логинов
 let socketBan = new Array();				//массив банов пользователей
 
 let SQLpool = mysql.createPool({	//создание пула подключений к БД
-	host: process.env.DB_HOST,
-	user: process.env.DB_USER,
-	password: process.env.DB_PASSWORD,
-	database: process.env.DB_NAME,
-	connectionLimit: 5,
+	host: 'bp0bkh1mfp7e89c5bmtq-mysql.services.clever-cloud.com',
+	user: 'uboscsbhvmfbjx7r',
+	password: 'oZimp8ShaBEm1ioFTmUg',
+	database: 'bp0bkh1mfp7e89c5bmtq',
+	connectionLimit: 3,
 });
 
 const playlistsAmount = 6;							//количество плейлистов
