@@ -26,14 +26,13 @@ let socketPrivilege = new Array();		//массив привилегий
 let socketLogin = new Array();			//массив логинов
 let socketBan = new Array();				//массив банов пользователей
 
-//mysql://bb174633f313e0:92b7de7b@eu-cdbr-west-03.cleardb.net/heroku_080df79e41a6994?reconnect=true
 let SQLpool = mysql.createPool({	//создание пула подключений к БД
-	connectionLimit: 10,
-	host: 'eu-cdbr-west-03.cleardb.net',
+	connectionLimit: 5,
+	host: 'bp0bkh1mfp7e89c5bmtq-mysql.services.clever-cloud.com',
 	port: '3306',
-	user: 'bb174633f313e0',
-	password: '92b7de7b',
-	database: 'heroku_080df79e41a6994'
+	user: 'uboscsbhvmfbjx7r',
+	password: 'oZimp8ShaBEm1ioFTmUg',
+	database: 'bp0bkh1mfp7e89c5bmtq'
 });
 
 const playlistsAmount = 6;							//количество плейлистов
