@@ -16,7 +16,7 @@ server.listen(PORT, () => {				//запуск сервера
 
 app.use(express.static('client'));		//работа статических элементов
 app.get('/', (req, res) => {	//получение маршрута к HTML-документу
-	res.sendFile(`${__dirname}/index.html`);
+	res.sendFile(`${__dirname}/client/index.html`);
 });
 
 
