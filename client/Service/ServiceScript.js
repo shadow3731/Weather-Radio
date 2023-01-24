@@ -1,6 +1,4 @@
-const socket = io("https://weather-radio365.netlify.app/client/", {
-    "rejectedUnauthorized": false
-}).connect();      //подключение библиотеки сокет для всех модулей
+const socket = io().connect();      //подключение библиотеки сокет для всех модулей
 
 document.addEventListener("DOMContentLoaded", () => {
     window.onerror = (msg, url, line, col, error) => {
