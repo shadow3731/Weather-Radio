@@ -27,12 +27,11 @@ let socketLogin = new Array();			//массив логинов
 let socketBan = new Array();				//массив банов пользователей
 
 let SQLpool = mysql.createPool({	//создание пула подключений к БД
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASSWORD,
+	database: process.env.DB_NAME,
 	connectionLimit: 5,
-	host: 'bp0bkh1mfp7e89c5bmtq-mysql.services.clever-cloud.com',
-	port: '3306',
-	user: 'uboscsbhvmfbjx7r',
-	password: 'oZimp8ShaBEm1ioFTmUg',
-	database: 'bp0bkh1mfp7e89c5bmtq'
 });
 
 const playlistsAmount = 6;							//количество плейлистов
