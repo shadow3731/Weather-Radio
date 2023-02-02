@@ -1,4 +1,4 @@
-INSERT INTO bp0bkh1mfp7e89c5bmtq.songs (song_id, artist, song, source, in_playlist1, in_playlist2, in_playlist3, in_playlist4, in_playlist5, in_playlist6, is_only_adult) VALUES
+INSERT INTO weather_radio.songs (song_id, artist, song, source, in_playlist1, in_playlist2, in_playlist3, in_playlist4, in_playlist5, in_playlist6, is_only_adult) VALUES
 (1, 'O-Zone', 'Dragostea Din Tei', 'client/Player/Music/O-Zone - Dragostea Din Tei.mp3', 1, 0, 0, 0, 0, 0, 0),
 (2, 'Flo Rida', 'Whistle', 'client/Player/Music/Flo Rida - Whistle.mp3', 1, 0, 0, 0, 0, 0, 0),
 (3, 'Thousand Foot Krutch', 'Take It Out On Me', 'client/Player/Music/Thousand Foot Krutch - Take It Out On Me.mp3', 1, 0, 0, 0, 0, 0, 0),
